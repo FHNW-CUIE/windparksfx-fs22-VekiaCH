@@ -1,0 +1,90 @@
+== CUIE Abschlussprojekt
+
+=== Bearbeitet von
+
+* _Vorname Nachname_
+* _Vorname Nachname_
+
+=== Integriert in die OOP2-Projekte von
+
+* *_Ergänzen Sie hier welche OOP2-Teams Ihr Projekt erfolgreich integriert haben._*
+
+=== Abgabe
+
+* *Mittwoch, 16.6.2022*, 23:42 Uhr
+
+* Die Abgabe erfolgt durch ein "Push" auf den Master-Branch Ihres GitHub-Repositories.
+
+=== Initiale Schritte
+
+* Tragen Sie ihre Namen unter "Bearbeitet von" ein.
+
+* Benennen Sie das Package `project` um. Verwenden Sie Ihren GitHub-Account- oder Team-Namen. (Via `Refactor -> Rename…`)
+
+* Pushen Sie diese Änderungen am besten sofort ins Git-Repository (z.B. via `VCS -> Commit… -> Commit & Push`)
+
+
+=== Aufgabe: Dashboard oder Business Control für die "WindParksFX"
+
+Entwerfen und implementieren Sie entweder ein Dashboard oder ein Business Control für das oop2-Projekt 'WindParksFX' auf Basis JavaFX.
+
+Dashboard
+
+* ein Dashboard ersetzt oder ergänzt den sogenannten Header der WindParks-Applikation
+* es arbeitet auf mindestens 2 Attributen eines Windparks
+* typischerweise enthält es also mehrere interaktive Custom Controls (im Sinne der Vorlesung)
+
+Business Control
+
+* Ein Business Control ersetzt eines (oder mehrere) der im sogenannten Editor-Bereich der Windparks-Applikation verwendeten Standard-TextFields.
+* Das Business Control soll den Benutzer beim jeweiligen Arbeitsschritt optimal unterstützen und alle im Unterricht besprochenen Mindestanforderungen an ein Business-Control erfüllen.
+* Das Business Control soll sich homogen in den bestehenden Editor-Bereich einfügen
+
+Für die einzelnen CustomControls des Dashboards verwenden Sie bei der Implementierung die Struktur wie im package `template_simplecontrol`.
+
+Für das _'Business Control'_ verwenden Sie bei der Implementierung die Struktur wie im package `template_businesscontrol`.
+
+Es ist Bestandteil der Aufgabe das passende Template auszuwählen (und zu erkennen, falls ein Template nicht geeignet ist).
+
+
+=== Präsentation / Postersession
+
+* *Montag, 13.6.2022*, 19:30, Raum 6.-1D09 und via MS Teams
+* Die Projekte werden der OOP2-Klasse im Rahmen einer  *Poster-Session* präsentiert.
+* Die Postersession startet mit Kurzpräsentationen (1 bis 2 Minuten) aller Projekte.
+* Danach wird in projekt-spezifischen "Meetings" die Gelegenheit gegeben auf Detailfragen einzugehen.
+* Erarbeiten Sie eine geeignete Präsentationsform, so dass das Interesse möglichst vieler OOP2-Teams an Ihrem Projekt geweckt wird.
+* Organisieren Sie Integrationstermine mit den interessierten OOP2-Studierenden.
+** Die Integration ist eine Gemeinschafts-Aufgabe von CUIE- und OOP2-Team.
+
+
+=== Bewertung der Lösung
+
+* 0-3 Punkte für die technische Umsetzung der Lösung
+** Es gelten die gleichen Kriterien wie bei den ersten beiden Assignments
+* 1 Punkt pro Integration in ein OOP2-Projekt
+** maximal 3 Punkte
+* 0 Punkte gibt es
+** wenn Sie keine Präsentation machen
+** wenn Sie nichts Lauffähiges zu präsentieren haben (Ideen/Entwürfe reichen nicht aus)
+** falls im vorgestellten Projekt keine der im Unterricht erarbeiteten Konzepte erkennbar sind
+** das Projekt nicht kompilierfähig ist
+** sich das Projekt nicht starten lässt (Exception beim Programmstart)
+** falls es sich um ein Plagiat handelt
+** falls kein nennenswerter Beitrag bei der Entwicklung geleistet wurde
+*** im Zweifelsfall wird ein Code-Walkthrough durchgeführt
+* In Ausnahmefällen kann es dazu kommen, dass Teammitglieder unterschiedliche Noten erhalten.
+
+
+=== Bitte beachten Sie
+
+* Falls Sie das Assignment zu zweit bearbeiten:
+** tragen Sie beide Namen unter "Bearbeitet von" ein
+** arbeiten Sie ausschliesslich in einem Repository
+** falls sie beide Zugang zu diesem Repository wollen: tragen Sie die zweite Person als "Collaborator" ein (auf GitHub unter `Settings -> Manage access`)
+** löschen Sie das nicht benötigte Repository (auf GitHub unter `Settings`)
+** arbeiten Sie gemeinsam und gleichzeitig an den Aufgaben (Stichwort: Pair-Programming)
+*** Empfehlung: Nutzen Sie "Code with me" von IntelliJ
+** https://www.it-agile.de/wissen/agiles-engineering/pair-programming/[Pair-Programming] heisst insbesondere, dass beide Teammitglieder zu gleichen Teilen aktiv in der Entwickler-Rolle sind. Einem Entwickler lediglich bei seiner Arbeit zuzuschauen ist kein Pair-Programming.
+** das Aufteilen und separate Bearbeiten von Teil-Aufgaben ist nicht erwünscht
+* Ausdrücklich erlaubt und erwünscht ist, dass Sie sich gegebenenfalls Hilfe holen.

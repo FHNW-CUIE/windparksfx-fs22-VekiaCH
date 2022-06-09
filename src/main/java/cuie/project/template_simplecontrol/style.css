@@ -1,15 +1,34 @@
-.simple-control {
+.turbine-control {
     -fx-padding:          5;
-    -fx-background-color: rgb(12, 12, 12);
-    -base-color:          rgb(2, 138, 204);
+    -fx-background-color: rgb(191, 234, 255);
 }
 
-.simple-control .background-circle {
-    -fx-fill: -base-color;
-}
-
-.simple-control .display {
-    -fx-font-family: 'Lato Light';
+.turbine-control .display {
+    -fx-font-family: 'Lato';
     -fx-font-size:   24;
-    -fx-fill:        derive(-base-color, 90%);
+    -fx-fill: rgb(8, 24, 48);
+}
+
+.turbine-control .display-large {
+    -fx-font-family: 'Lato';
+    -fx-font-size:   32;
+    -fx-fill: rgb(8, 24, 48);
+}
+
+.turbine-control .display-large-field {
+    -fx-font-family: 'Lato';
+    -fx-font-size:   32;
+    -fx-fill: rgb(8, 24, 48);
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-text-fill: rgb(168, 42, 78);;
+}
+
+.turbine-control .display-field {
+    -fx-font-family: 'Lato';
+    -fx-font-size:   24;
+    -fx-fill: rgb(8, 24, 48);
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-text-fill: rgb(168, 42, 78);;
 }

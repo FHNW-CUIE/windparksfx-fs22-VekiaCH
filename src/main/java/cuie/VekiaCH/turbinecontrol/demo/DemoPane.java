@@ -1,6 +1,6 @@
-package cuie.project.template_simplecontrol.demo;
+package cuie.VekiaCH.turbinecontrol.demo;
 
-import cuie.project.template_simplecontrol.TurbineControl;
+import cuie.VekiaCH.turbinecontrol.TurbineControl;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;

@@ -2,8 +2,7 @@
 
 === Bearbeitet von
 
-* _Vorname Nachname_
-* _Vorname Nachname_
+* _Kyle Egli_
 
 === Integriert in die OOP2-Projekte von
 
@@ -19,7 +18,7 @@
 
 * Tragen Sie ihre Namen unter "Bearbeitet von" ein.
 
-* Benennen Sie das Package `project` um. Verwenden Sie Ihren GitHub-Account- oder Team-Namen. (Via `Refactor -> Rename…`)
+* Benennen Sie das Package `VekiaCH` um. Verwenden Sie Ihren GitHub-Account- oder Team-Namen. (Via `Refactor -> Rename…`)
 
 * Pushen Sie diese Änderungen am besten sofort ins Git-Repository (z.B. via `VCS -> Commit… -> Commit & Push`)
 
@@ -40,7 +39,7 @@ Business Control
 * Das Business Control soll den Benutzer beim jeweiligen Arbeitsschritt optimal unterstützen und alle im Unterricht besprochenen Mindestanforderungen an ein Business-Control erfüllen.
 * Das Business Control soll sich homogen in den bestehenden Editor-Bereich einfügen
 
-Für die einzelnen CustomControls des Dashboards verwenden Sie bei der Implementierung die Struktur wie im package `template_simplecontrol`.
+Für die einzelnen CustomControls des Dashboards verwenden Sie bei der Implementierung die Struktur wie im package `turbinecontrol`.
 
 Für das _'Business Control'_ verwenden Sie bei der Implementierung die Struktur wie im package `template_businesscontrol`.
 

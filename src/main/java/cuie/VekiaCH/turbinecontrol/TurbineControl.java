@@ -1,4 +1,4 @@
-package cuie.project.template_simplecontrol;
+package cuie.VekiaCH.turbinecontrol;
 
 import java.util.Objects;
 import javafx.animation.Interpolator;

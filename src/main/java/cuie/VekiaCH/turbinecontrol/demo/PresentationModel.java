@@ -1,7 +1,6 @@
-package cuie.project.template_simplecontrol.demo;
+package cuie.VekiaCH.turbinecontrol.demo;
 
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableValue;
 
 public class PresentationModel {
     private final DoubleProperty powerValue2015 = new SimpleDoubleProperty(4278);

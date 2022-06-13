@@ -6,10 +6,22 @@
 .turbine-control .display {
     -fx-font-family: 'Lato';
     -fx-font-size:   24;
+    -fx-fill: rgb(73, 84, 101);
+}
+
+.turbine-control .display-editable {
+    -fx-font-family: 'Lato';
+    -fx-font-size:   24;
     -fx-fill: rgb(8, 24, 48);
 }
 
 .turbine-control .display-large {
+    -fx-font-family: 'Lato';
+    -fx-font-size:   32;
+    -fx-fill: rgb(73, 84, 101);
+}
+
+.turbine-control .display-large-editable {
     -fx-font-family: 'Lato';
     -fx-font-size:   32;
     -fx-fill: rgb(8, 24, 48);

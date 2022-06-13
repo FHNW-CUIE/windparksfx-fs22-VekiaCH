@@ -22,8 +22,9 @@ import javafx.util.Duration;
  * wind speed over the past 4 years given the 4 yearly MWhs. It also displays a Turbine turning with the average RPM
  * at the given wind speed. Clicking on the Turbine stops the animation and clicking again resumes it. Clicking the name
  * of the city allows it to be edited (max 20 characters). Pressing escape undoes the changes and pressing enter saves
- * them. The same for the canton. The rest of the values are not editable as they are all dependent on the 2015-2018 MWh
- * and are not found on the dashboard. Changing these would cause the data to no longer be linked/correct.
+ * them. The same for the canton. The number of Turbines can also be set, (max 99 turbines). The rest of the values are
+ * not editable as they are all dependent on the 2015-2018 MWh and are not found on the dashboard. Changing these would
+ * cause the data to no longer be linked/correct.
  *
  * @author
  * Kyle Egli
@@ -64,11 +65,14 @@ public class TurbineControl extends Region {
     Text windSpeedText = new Text();
     Text rpmText = new Text();
     Text powerMHhTotalText = new Text();
+    TextField numberOfTurbinesField = new TextField();
     Text numberOfTurbinesText = new Text();
+    Text numberOfTurbinesTextLabel = new Text(" Turbine(s)");
     Text powerText = new Text();
 
     private String cityPersistent = "";
     private String cantonPersistent = "";
+    private int numberOfTurbinesPersistent = 0;
 
     //turbine Pane
     private Pane drawingPane;
@@ -99,12 +103,13 @@ public class TurbineControl extends Region {
         Image turbinePostImage = loadImage("/windmill_post_250x250.png");
         turbinePost.setImage(turbinePostImage);
 
-        cityText.getStyleClass().add("display-large");
-        cantonText.getStyleClass().add("display");
+        cityText.getStyleClass().add("display-large-editable");
+        cantonText.getStyleClass().add("display-editable");
         windSpeedText.getStyleClass().add("display");
         rpmText.getStyleClass().add("display");
         powerMHhTotalText.getStyleClass().add("display");
-        numberOfTurbinesText.getStyleClass().add("display");
+        numberOfTurbinesText.getStyleClass().add("display-editable");
+        numberOfTurbinesTextLabel.getStyleClass().add("display");
         powerText.getStyleClass().add("display");
 
         cityTextField.getStyleClass().add("display-large-field");
@@ -116,6 +121,11 @@ public class TurbineControl extends Region {
         cantonTextField.setAlignment(Pos.CENTER_RIGHT);
         cantonTextField.setVisible(false);
         cantonTextField.setMaxWidth(50);
+
+        numberOfTurbinesField.getStyleClass().add("display-field");
+        numberOfTurbinesField.setAlignment(Pos.CENTER_RIGHT);
+        numberOfTurbinesField.setVisible(false);
+        numberOfTurbinesField.setMaxWidth(50);
     }
 
 
@@ -145,11 +155,16 @@ public class TurbineControl extends Region {
         StackPane stackPane2 = new StackPane(cantonText, cantonTextField);
         stackPane2.setAlignment(Pos.TOP_RIGHT);
 
+        StackPane stackPane3 = new StackPane(numberOfTurbinesText, numberOfTurbinesField);
+        stackPane3.setAlignment(Pos.TOP_RIGHT);
+        HBox hBox1 = new HBox(stackPane3, numberOfTurbinesTextLabel);
+        hBox1.setAlignment(Pos.TOP_RIGHT);
+
         Text spacer = new Text(" ");
         spacer.getStyleClass().add("display");
 
         VBox vBox1 = new VBox(stackPane1, stackPane2, spacer, rpmText,
-                numberOfTurbinesText, powerText, powerMHhTotalText, windSpeedText);
+                hBox1, powerText, powerMHhTotalText, windSpeedText);
         vBox1.setAlignment(Pos.CENTER_RIGHT);
         vBox1.setMinWidth(265);
         HBox hBox2 = new HBox(drawingPane, vBox1);
@@ -206,6 +221,25 @@ public class TurbineControl extends Region {
                 cantonTextField.setVisible(!cantonTextField.isVisible());
             }
         });
+
+        numberOfTurbinesText.setOnMouseClicked(e -> {
+            numberOfTurbinesText.setVisible(!numberOfTurbinesText.isVisible());
+            numberOfTurbinesField.setVisible(!numberOfTurbinesField.isVisible());
+            numberOfTurbinesPersistent = numberOfTurbines.get();
+        });
+
+        numberOfTurbinesField.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if(event.getCode().equals(KeyCode.ESCAPE)){
+                numberOfTurbinesField.textProperty().set(String.valueOf(numberOfTurbinesPersistent));
+                numberOfTurbinesText.setVisible(!numberOfTurbinesText.isVisible());
+                numberOfTurbinesField.setVisible(!numberOfTurbinesField.isVisible());
+            }
+            if(event.getCode().equals(KeyCode.ENTER)){
+                numberOfTurbinesText.setVisible(!numberOfTurbinesText.isVisible());
+                numberOfTurbinesField.setVisible(!numberOfTurbinesField.isVisible());
+                numberOfTurbines.set(Integer.parseInt(numberOfTurbinesField.getText()));
+            }
+        });
     }
 
     private void setupValueChangeListeners() {
@@ -238,7 +272,7 @@ public class TurbineControl extends Region {
 
         cityTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue.length() > 20){
-                cityTextField.textProperty().set(oldValue);
+                cityTextField.setText(oldValue);
             }
         });
 
@@ -249,10 +283,25 @@ public class TurbineControl extends Region {
                 }
             }
 
-            if(newValue.length() > 2){
-                cantonTextField.textProperty().set(oldValue);
+            else {
+                cantonTextField.setText(oldValue);
             }
         });
+
+        numberOfTurbinesField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue.length() <= 2){
+                if(!newValue.matches("\\s0-9")) {
+                    numberOfTurbinesField.setText(newValue.replaceAll("[^\\s0-9]", ""));
+                }
+            }
+
+            else {
+                numberOfTurbinesField.setText(oldValue);
+            }
+        });
+
+        numberOfTurbinesText.textProperty().addListener((observable, oldValue, newValue) ->
+                numberOfTurbinesField.textProperty().set(newValue));
     }
 
     private void setupBindings() {
@@ -260,8 +309,7 @@ public class TurbineControl extends Region {
                 .concat(windSpeed.asString("%.1f").concat(" m/s")));
         rpmText.textProperty().bind(rpm.asString("%.1f").concat(" RPM"));
         powerMHhTotalText.textProperty().bind(powerMWhTotal.asString("%.1f").concat(" MWh"));
-        numberOfTurbinesText.textProperty().bind(new SimpleStringProperty("Turbines:  ")
-                .concat(numberOfTurbines.asString()));
+        numberOfTurbinesText.textProperty().bind(numberOfTurbinesProperty().asString());
         powerText.textProperty().bind(turbinePower.asString("%.1f").concat(" kW"));
         cityTextField.textProperty().bindBidirectional(cityTextProperty());
         cantonTextField.textProperty().bindBidirectional(cantonTextProperty());

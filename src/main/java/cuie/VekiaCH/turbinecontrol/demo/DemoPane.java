@@ -56,7 +56,7 @@ public class DemoPane extends BorderPane {
         powerMWhTotal = new Label();
 
         numberOfTurbinesLabel = new Label();
-        numberOfTurbinesSlider = new Slider(0, 15, 0);
+        numberOfTurbinesSlider = new Slider(0, 99, 0);
 
         turbinePowerLabel = new Label();
         turbinePower = new Label();

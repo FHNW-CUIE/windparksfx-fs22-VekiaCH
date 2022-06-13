@@ -90,7 +90,7 @@ public class TurbineControl extends Region {
 
     private void initializeSelf() {
         loadFonts("/fonts/Lato/Lato-Lig.ttf", "/fonts/Lato/Lato-Reg.ttf");
-        addStylesheetFiles("style.css");
+        addStylesheetFiles("/turbine.css");
 
         getStyleClass().add("turbine-control");
     }
@@ -365,8 +365,8 @@ public class TurbineControl extends Region {
 
     private void addStylesheetFiles(String... stylesheetFile){
         for(String file : stylesheetFile){
-            String stylesheet = Objects.requireNonNull(getClass().getResource(file)).toExternalForm();
-            getStylesheets().add(stylesheet);
+            String stylesheet;
+            getStylesheets().add(getClass().getResource(file).toExternalForm());
         }
     }
 

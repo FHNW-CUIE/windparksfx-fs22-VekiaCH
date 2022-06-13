@@ -72,7 +72,7 @@ public class TurbineControl extends Region {
 
     private String cityPersistent = "";
     private String cantonPersistent = "";
-    private int numberOfTurbinesPersistent = 0;
+    private int numberOfTurbinesPersistent = 1;
 
     //turbine Pane
     private Pane drawingPane;
@@ -239,6 +239,12 @@ public class TurbineControl extends Region {
                 numberOfTurbinesField.setVisible(!numberOfTurbinesField.isVisible());
                 numberOfTurbines.set(Integer.parseInt(numberOfTurbinesField.getText()));
             }
+            if(event.getCode().equals(KeyCode.UP)){
+                numberOfTurbinesField.setText(String.valueOf(Integer.parseInt(numberOfTurbinesField.getText())+1));
+            }
+            if(event.getCode().equals(KeyCode.DOWN)){
+                numberOfTurbinesField.setText(String.valueOf(Integer.parseInt(numberOfTurbinesField.getText())-1));
+            }
         });
     }
 
@@ -290,7 +296,10 @@ public class TurbineControl extends Region {
 
         numberOfTurbinesField.textProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue.length() <= 2){
-                if(!newValue.matches("\\s0-9")) {
+                if(newValue.equals("0")){
+                    numberOfTurbinesField.setText(oldValue);
+                }
+                else if(!newValue.matches("\\s0-9")) {
                     numberOfTurbinesField.setText(newValue.replaceAll("[^\\s0-9]", ""));
                 }
             }

@@ -168,7 +168,7 @@ public class TurbineControl extends Region {
         vBox1.setAlignment(Pos.CENTER_RIGHT);
         vBox1.setMinWidth(265);
         HBox hBox2 = new HBox(drawingPane, vBox1);
-        setMinWidth(450);
+        setMinWidth(580);
         setMaxHeight(250);
         getChildren().addAll(hBox2);
     }
